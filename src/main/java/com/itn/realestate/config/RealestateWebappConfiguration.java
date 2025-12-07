@@ -28,9 +28,12 @@ public class RealestateWebappConfiguration {
 				.authorizeHttpRequests(auth -> auth
 						.requestMatchers("/admin/**").hasRole("ADMIN")
 						.requestMatchers("/user/**").hasRole("USER")
-						.requestMatchers("/owner/**").hasRole("OWNER")
-						.requestMatchers("/agent/**").hasRole("AGENT")
-						.anyRequest().permitAll()
+						//.requestMatchers("/owner/**").hasRole("OWNER")
+						//.requestMatchers("/agent/**").hasRole("AGENT")
+						//.requestMatchers("/css/**", "/js/**", "/images/**").permitAll() // static resources
+						 .requestMatchers("/owner/property/add", "/agent/property/add").permitAll() // allow everyone
+				            // everything else requires login
+						.anyRequest().authenticated() //.permitAll()
 						
 				)
 				.formLogin(login -> login
@@ -44,7 +47,12 @@ public class RealestateWebappConfiguration {
 						.logoutUrl("/logout")
 						.invalidateHttpSession(true)
 						.permitAll()
-				);
+				)
+				.csrf(csrf -> csrf.disable());
+				
+				 
+		
+		
 		
 		return http.build();
 				

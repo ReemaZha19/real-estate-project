@@ -14,8 +14,6 @@ import com.itn.realestate.entity.UserRole;
 public interface UserDetailService {
 
    
-    
-
     public void saveUserDetail(UserDetail userDetail);
     
     public List<UserDetail> getAllUsers();

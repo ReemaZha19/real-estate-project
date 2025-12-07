@@ -42,7 +42,8 @@
                             <li><a class="dropdown-item" href="#">Rent</a></li>
                             <li><a class="dropdown-item" href="#">Commercial</a></li>
                             <li><a class="dropdown-item" href="#">Land / Plots</a></li>
-                            <li><a class="dropdown-item" href="#">New Projects</a></li>
+                            <li><a class="dropdown-item" href="${pageContext.request.contextPath}/owner/property/add">New Owner Property</a></li>
+                            <li><a class="dropdown-item" href="${pageContext.request.contextPath}/agent/property/add">New Agent Property</a></li>
                         </ul>
                     </li>
 
@@ -73,6 +74,10 @@
 
                     <li class="nav-item">
                         <a class="nav-link text-white" href="#">Contact</a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="signup">Signup</a>
                     </li>
                 </ul>
 

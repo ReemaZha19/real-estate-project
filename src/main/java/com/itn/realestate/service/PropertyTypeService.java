@@ -15,6 +15,8 @@ public interface PropertyTypeService {
 		
 		public void updatePropertyType(PropertyType type);
 		
-		public void deletePropertyType(PropertyType type); 
+		public void deletePropertyType(PropertyType type);
+
+		public Object findAll(); 
 	
 }

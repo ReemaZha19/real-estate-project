@@ -54,6 +54,12 @@ public class PropertyTypeServiceImpl implements PropertyTypeService{
 		propertyTypeRepository.delete(type);
 		
 	}
+
+	@Override
+	public Object findAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 	
 
