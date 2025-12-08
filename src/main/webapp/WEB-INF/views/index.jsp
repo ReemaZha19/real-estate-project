@@ -7,6 +7,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title></title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    
+    <style>
+        /* Banner Section */
+       .banner {
+		    background-image: url('https://www.propertypistol.com/blog/wp-content/uploads/2021/03/product-banner-mobile.jpg');
+		    background-size: cover;
+		    background-position: center;
+		    height: 600px;
+		    letter-spacing: 1px;
+		    position: relative;
+		    display: flex;
+		    align-items: center; /* vertical center */
+		}
+		
+		.banner .content {
+		    padding-left: 100px; /* space from left */
+		    text-align: left;
+		}
+		
+		.banner-button {
+		    letter-spacing: 1px;
+		    font-size: 16px;
+		}
+		
+		.banner-button:hover {
+		    background-color: white;
+		    color: blue;
+		    border-color: blue;
+		}
+
+        /* Property Cards */
+        .property-card img {
+            height: 200px;
+            object-fit: cover;
+        }
+        .property-card {
+            margin-bottom: 30px;
+            transition: transform 0.2s;
+        }
+        .property-card:hover {
+            transform: scale(1.02);
+        }
+        .property-price {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #28a745;
+        }
+        .property-name {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+        .property-description {
+            font-size: 0.9rem;
+            color: #555;
+        }
+    </style>
+    
+    
   </head>
   <body>
     <nav class="navbar navbar-expand-lg bg-primary sticky-top py-3 shadow-sm">
@@ -277,6 +335,37 @@
             </div>
         </div>
     </div>
+    
+    <!-- Banner Section -->
+    <section class="banner">
+	    <div class="content text-white">
+	        <h1 class="mb-1">Find Your Dream Property</h1>
+	        <p class="mb-3">Discover the best properties listed by owners and agents</p>
+	        <a href="#" class="banner-button btn btn-primary btn-lg">Show Property</a>
+	    </div>
+	</section>
+    
+   <!-- New Properties Section -->
+    <div class="container my-5">
+        <h2 class="mb-4 text-center">New Properties</h2>
+        <div class="row">
+            <!-- Example property card -->
+            <div class="col-md-4" th:each="property : ${properties}">
+                <div class="card property-card">
+                    <img th:src="@{'/property_images/Property_image/' + ${property.image1}}" class="card-img-top" alt="Property Image">
+                    <div class="card-body">
+                        <h5 class="property-name" th:text="${property.name}">Property Name</h5>
+                        <p class="property-description" th:text="${property.description}">Property description goes here.</p>
+                        <p class="property-price" th:text="${property.price} + ' USD'">$250,000</p>
+                        <a href="#" class="btn btn-primary w-100">View Details</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
   </body>

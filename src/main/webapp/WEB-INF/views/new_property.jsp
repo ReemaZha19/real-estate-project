@@ -44,7 +44,7 @@
 
         <div class="card-body">
 
-            <form action="${pageContext.request.contextPath}/property/save" method="post" enctype="multipart/form-data">
+            <form action="${pageContext.request.contextPath}/${authority.contains('OWNER') ? 'owner' : 'agent' }/property/add" method="post" enctype="multipart/form-data">
 
                 <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
 
@@ -71,7 +71,7 @@
                         <select name="propertyType" class="form-control">
                             <option disabled selected>-- Select Property Type --</option>
 
-                            <c:forEach var="pt" items="${propertyTypes}">
+                            <c:forEach var="pt" items="${propertyType}">
                                 <option value="${pt.id}">${pt.name}</option>
                             </c:forEach>
                         </select>
