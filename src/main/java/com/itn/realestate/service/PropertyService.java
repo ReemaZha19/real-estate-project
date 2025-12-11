@@ -24,6 +24,10 @@ public interface PropertyService {
 	public void updateProperty(Property property);
 	
 	public void deleteProperty(Property property);
+
+	public List<Property> getAll();
+
+	
 	
 	
 }

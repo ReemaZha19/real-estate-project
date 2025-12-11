@@ -10,6 +10,7 @@
 	<a href="${pageContext.request.contextPath }/services">Services</a>
 	<a href="${pageContext.request.contextPath }/contact">Contact</a>
 	<a href="${pageContext.request.contextPath }/signup">Signup</a>
+	<a href="${pageContext.request.contextPath }/similar_product">Similar Product</a>
 	
 	<sec:authorize access="isAuthenticated()">
 	    <a href="${pageContext.request.contextPath }/logout">Logout</a>

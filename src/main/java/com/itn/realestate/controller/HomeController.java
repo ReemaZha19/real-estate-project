@@ -7,11 +7,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.itn.realestate.entity.UserDetail;
 import com.itn.realestate.entity.UserRole;
+import com.itn.realestate.service.PropertyService;
 import com.itn.realestate.service.UserDetailService;
 
 
@@ -24,9 +26,13 @@ public class HomeController {
 	
 	@Autowired
 	private UserDetailService userDetailService;
+	
+	@Autowired
+	private PropertyService propertyService;
 
 	@RequestMapping({"/", "/home"})
-	public String openHome() {   // request handler method
+	public String openHome(Model model) {  
+		model.addAttribute("property_list", propertyService.getPropertiesByStatus("ACTIVE"));
 		return "index";
 	}
 	
@@ -89,6 +95,20 @@ public class HomeController {
 	    }
 	}
 	
+	@GetMapping("/property_detail/{id}")
+	public String showPropertyDetail(@PathVariable int id, Model model) {
+		model.addAttribute("property", propertyService.getPropertyById(id));
+		model.addAttribute("property_list", propertyService.getPropertiesByStatus("ACTIVE"));
+		
+		return "property_detail";
+	}
 	
+	@GetMapping("/similar_product")
+	public String showSimilarProduct(Model model) {
+	    model.addAttribute("property_list", propertyService.getAll());
+	    return "similar_product"; 
+	}
+
+
 
 }
