@@ -27,7 +27,7 @@ public class RealestateWebappConfiguration {
 		http
 				.authorizeHttpRequests(auth -> auth
 						.requestMatchers("/admin/**").hasRole("ADMIN")
-						.requestMatchers("/user/**").hasRole("USER")
+						.requestMatchers("/user/**").authenticated() 
 						.requestMatchers("/owner/**").hasRole("OWNER")
 						.requestMatchers("/agent/**").hasRole("AGENT")
 						.anyRequest().permitAll()
@@ -46,6 +46,7 @@ public class RealestateWebappConfiguration {
 						.permitAll()
 				);
 		
+		http.csrf().disable();
 		
 		return http.build();
 				

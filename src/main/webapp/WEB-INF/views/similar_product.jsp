@@ -234,15 +234,18 @@
 		        
 			<script>
 			   
-			    var desktopCarousel = document.querySelector("#realestateSimilarProductDesktopCarousel");
-			    if(desktopCarousel) {
-			        new bootstrap.Carousel(desktopCarousel, { interval: 4000, ride: "carousel", pause: false, wrap: true });
-			    }
-			
-			    var mobileCarousel = document.querySelector("#realestateSimilarProductMobileCarousel");
-			    if(mobileCarousel) {
-			        new bootstrap.Carousel(mobileCarousel, { interval: 4000, ride: "carousel", pause: false, wrap: true });
-			    }
+				$(document).ready(function() {
+				    var $desktopCarousel = $("#realestateSimilarProductDesktopCarousel");
+				    if ($desktopCarousel.length) {
+				        new bootstrap.Carousel($desktopCarousel[0], { interval: 4000, ride: "carousel", pause: false, wrap: true });
+				    }
+	
+				    var $mobileCarousel = $("#realestateSimilarProductMobileCarousel");
+				    if ($mobileCarousel.length) {
+				        new bootstrap.Carousel($mobileCarousel[0], { interval: 4000, ride: "carousel", pause: false, wrap: true });
+				    }
+				});
+				
 			</script>
 	
 	</body>

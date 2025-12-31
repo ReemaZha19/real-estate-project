@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -81,23 +81,32 @@
 			</div></li>
 
 		<!-- Clients -->
-		<li class="nav-item"><a class="nav-link collapsed" href="#"
-			data-toggle="collapse" data-target="#collapseClients"
-			aria-expanded="true" aria-controls="collapseClients"> <i
-				class="fas fa-fw fa-wrench"></i> <span>Clients</span>
-		</a>
+		<li class="nav-item">
+			<a class="nav-link collapsed" href="#"
+				data-toggle="collapse" data-target="#collapseClients"
+				aria-expanded="true" aria-controls="collapseClients"> <i
+					class="fas fa-fw fa-wrench"></i> <span>Clients</span>
+			</a>
 
-			<div id="collapseClients" class="collapse"
-				aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-				<div class="bg-white py-2 collapse-inner rounded">
-					<h6 class="collapse-header">Manage Clients:</h6>
-					<a class="collapse-item"
-						href="${pageContext.request.contextPath}/admin/clients/add">Add
-						Clients</a> <a class="collapse-item"
-						href="${pageContext.request.contextPath}/admin/clients/show">Show
-						Clients</a>
+				<div id="collapseClients" class="collapse"
+					aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+					<div class="bg-white py-2 collapse-inner rounded">
+						<h6 class="collapse-header">Manage Clients:</h6>
+						<a class="collapse-item"
+							href="${pageContext.request.contextPath}/admin/clients/add">Add
+							Clients</a> <a class="collapse-item"
+							href="${pageContext.request.contextPath}/admin/clients/show">Show
+							Clients</a>
+					</div>
 				</div>
-			</div></li>
+			</li>
+			
+			<li class="nav-item">
+		        <a class="nav-link" href="${pageContext.request.contextPath}/admin/booking/show">
+		        	<i class="fas fa-fw fa-calendar-check"></i>
+		            <span>Booking</span>
+		        </a>
+    		</li>
 
 		<!-- Divider -->
 		<hr class="sidebar-divider">
@@ -118,10 +127,12 @@
 		</a></li>
 
 		<!-- Comments -->
-		<li class="nav-item"><a class="nav-link"
-			href="${pageContext.request.contextPath}/admin/home"> <i
+		<li class="nav-item">
+			<a class="nav-link"
+				href="${pageContext.request.contextPath}/admin/home"> <i
 				class="fas fa-fw fa-table"></i> <span>Comments</span>
-		</a></li>
+			</a>
+		</li>
 
 		<!-- Divider -->
 		<hr class="sidebar-divider d-none d-md-block">

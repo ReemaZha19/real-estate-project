@@ -13,41 +13,54 @@
     <style>
 
     </style>
-    
-    
+ 
   </head>
-  <body>
+  <body class="bg-body-secondary">
   
     
-   
+     <%@include file="navbar.jsp" %>
     
-   <!-- New Properties Section -->
+    <%@include file="banner.jsp" %>
+    
+    <%@include file="latest_property.jsp" %>
+    
+    <%@include file="category_property.jsp" %>
+    
+ 	<%@include file="property_collection.jsp" %>
+ 	
+ 	
+
+<%@include file="map_faqs.jsp" %>
+ 	
+ 	
+    
+   <%@include file="choose_us.jsp" %>
    
-   <div class="container-fluid mt-4">
-	   <div class=row>
-		   <c:forEach items = "${property_list }" var="property">
-			   <div class="col col-lg-3 col-md-6">
-				   <div class="card">
-					   <div class="card-heading">${property.name}</div>
-						   <div class="card-body">
-						   		<img src="${pageContext.request.contextPath }/property_image/${property.image1}">
-						   		
-						   		<p>${property.address}</p>
-						   		<p>${property.price}</p>
-						   		<a class="btn" href="${pageContext.request.contextPath }/property_detail/${property.id}">View Detail</a>
-						   </div>
-				   </div>
-			   </div>
-		   
-		   </c:forEach>
-	   </div>
-   </div>
+    <%@include file="get_in_touch.jsp" %>
    
+   
+  
+ 
+ 
+<%@include file="client_review.jsp" %>
+
+
+
+
+
    
    
     <%@include file="footer.jsp" %>
     
     
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script >
+
+
+</script>
+
+
+    
   </body>
 </html>

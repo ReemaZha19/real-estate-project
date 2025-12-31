@@ -2,7 +2,6 @@
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
     <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-    
 	<c:set var="cp" value="${pageContext.request.contextPath}"></c:set>
 <!DOCTYPE html>
 <html>
@@ -15,30 +14,31 @@
 		<title>Property Detail Page</title>
 		
 	<style>	
-			.multi-slider-container {
+			.realestate-propertydetail-multi-slider-container {
 			    position: relative;
 			    width: 100%;
 			    overflow: hidden;
+			    
 			}
 			
-			.multi-slider-wrapper {
+			.realestate-propertydetail-multi-slider-wrapper {
 			    display: flex;
 			    transition: transform 0.5s ease-in-out;
-			    gap: 10px !important; 
 			    padding: 0 10px !important; 
 			    box-sizing: border-box;
 			}
 
-			.slider-img {
+			.realestate-propertydetail-slider-img {
 			    flex: 0 0 calc((100% - 60px) / 3);
 			    height: 350px;
 			    object-fit: cover;
 			    border-radius: 8px;
 			    cursor: pointer;
+			    padding: 0 0 0 10px;
 			}
 
 
-			.multi-slider-btn {
+			.realestate-propertydetail-multi-slider-btn {
 			    position: absolute;
 			    top: 50%;
 			    transform: translateY(-50%);
@@ -56,18 +56,18 @@
 			    z-index: 10;
 			}
 			
-			.multi-slider-btn.prev { left: 20px; }
-			.multi-slider-btn.next { right: 20px; }
+			.realestate-propertydetail-multi-slider-btn.prev { left: 20px; }
+			.realestate-propertydetail-multi-slider-btn.next { right: 20px; }
 
-	        .property-details {
+	        .realestate-propertydetail-details {
 	            font-family: 'Segoe UI', sans-serif;
 	            border-top: 1px solid #e0e0e0;
 	            padding-top: 60px;
 	
 	        }
 	
-	        .property-name,
-			.property-detail-authority {
+	        .realestate-propertydetail-name,
+			.realestate-propertydetail-authority {
 			    font-size: 28px;
 			    font-weight: 300;
 			    margin-bottom: 5px;
@@ -80,12 +80,12 @@
 			    transition: color 0.3s ease, transform 0.3s ease;
 			}
 			
-			.property-name:hover,
-			.property-name:active,
-			.property-name:focus,
-			.property-detail-authority:hover,
-			.property-detail-authority:active,
-			.property-detail-authority:focus {
+			.realestate-propertydetail-name:hover,
+			.realestate-propertydetail-name:active,
+			.realestate-propertydetail-name:focus,
+			.realestate-propertydetail-authority:hover,
+			.realestate-propertydetail-authority:active,
+			.realestate-propertydetail-authority:focus {
 			    color: black;
 			    transform: translateY(-3px);
 			    cursor: pointer;
@@ -93,29 +93,22 @@
 			}
 
 	
-	        .property-description {
+	        .realestate-propertydetail-description {
 	            font-size: 16px;
 	            color: #555;
 	            margin-top: 10px;
 	            letter-spacing: 1px;
 	            font-family: 'Segoe UI', sans-serif;
 	        }
+
 	
-	        .property-price h3 {
-	            font-size: 24px;
-	            font-weight: 400;
-	            color: #222;
-	            letter-spacing: 1px;
-	            font-family: 'Segoe UI', sans-serif;
-	        }
-	
-	        .property-contact-section h4 {
+	        .realestate-propertydetail-contact-section h4 {
 	            font-weight: 600;
 	            letter-spacing: 1px;
 	        }
 	
 	
-	        .property-detail-contact-input {
+	        .prealestate-propertydetail-contact-input {
 	            background-color: #111;
 	            color: #fff;
 	            border: 1px solid #fff;
@@ -123,17 +116,17 @@
 	            padding: 8px 12px;
 	             }
 	
-	        .property-detail-contact-input::placeholder {
+	        .realestate-propertydetail-contact-input::placeholder {
 	            color: #ccc;
 	        }
 	
-	        .property-detail-contact-input:focus {
+	        .realestate-propertydetail-contact-input:focus {
 	            outline: none;
 	
 	        }
 	
 			 @media (max-width: 768px) {
-			 	.multi-slider-btn{
+			 	.realestate-propertydetail-multi-slider-btn{
 			    top: 50%;
 			    transform: translateY(-50%);
 			 	background-color: gray; 
@@ -150,14 +143,18 @@
 			    z-index: 10;
 			}
 			
-			.multi-slider-btn.prev { left: 0px; }
-			.multi-slider-btn.next { right: 0px; }
+			.realestate-propertydetail-slider-img {
+				border-radius:0px;
+				padding:0 0 0 0px;
+			}
+			
+			.realestate-propertydetail-multi-slider-btn.prev { left: 0px; }
+			.realestate-propertydetail-multi-slider-btn.next { right: 0px; }
 			 }
 			 
-			 .multi-slider-wrapper {
+			 .realestate-propertydetail-multi-slider-wrapper {
 			    display: flex;
 			    transition: transform 0.5s ease-in-out;
-			    gap: 0px; 
 			    padding: 0 !important;
 			    box-sizing: border-box;
 			}
@@ -174,23 +171,23 @@
 <%@include file="navbar.jsp" %>
   
 
-<section class="mt-4 mt-sm-0 py-5">
-    <div class="multi-slider-container">
-        <div class="multi-slider-wrapper" id="multiSlider">
+<section class="pt-5 mt-sm-0 py-5" style="font-family: 'Segoe UI', sans-serif;">
+    <div class="realestate-propertydetail-multi-slider-container">
+        <div class="realestate-propertydetail-multi-slider-wrapper" id="realestatePropertyDetailMultiSlider">
 
-            <img src="${cp}/property_image/${property.image1}" class="slider-img">
-            <img src="${cp}/property_image/${property.image2}" class="slider-img">
-            <img src="${cp}/property_image/${property.image3}" class="slider-img">
-            <img src="${cp}/property_image/${property.image1}" class="slider-img">
-            <img src="${cp}/property_image/${property.image2}" class="slider-img">
-            <img src="${cp}/property_image/${property.image3}" class="slider-img">
+            <img src="${cp}/property_image/${property.image1}" class="realestate-propertydetail-slider-img">
+            <img src="${cp}/property_image/${property.image2}" class="realestate-propertydetail-slider-img">
+            <img src="${cp}/property_image/${property.image3}" class="realestate-propertydetail-slider-img">
+            <img src="${cp}/property_image/${property.image1}" class="realestate-propertydetail-slider-img">
+            <img src="${cp}/property_image/${property.image2}" class="realestate-propertydetail-slider-img">
+            <img src="${cp}/property_image/${property.image3}" class="realestate-propertydetail-slider-img">
 
         </div>
 
-        <button class="multi-slider-btn prev" id="prevBtn">
+        <button class="realestate-propertydetail-multi-slider-btn prev" id="prevBtn">
 		    <i class="fa-solid fa-angle-left"></i>
 		</button>
-		<button class="multi-slider-btn next" id="nextBtn">
+		<button class="realestate-propertydetail-multi-slider-btn next" id="nextBtn">
 		    <i class="fa-solid fa-angle-right"></i>
 		</button>
 
@@ -198,11 +195,11 @@
 </section>
 
 
-<div class="modal fade" id="imageModal" tabindex="-1">
+<div class="modal fade" id="realestatePropertyDetailImageModal" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered modal-lg"> 
         <div class="modal-content  border-0">
             <div class="modal-body d-flex justify-content-center align-items-center p-0">
-                <img id="modalImage" style="width: 100%; object-fit: contain; cursor:pointer;" >
+                <img id="realestatePropertyDetailModalImage" style="width: 100%; object-fit: contain; cursor:pointer;" >
             </div>
         </div>
     </div>
@@ -212,29 +209,29 @@
 
 
 
-    <section class="property-details mt-4 ">
+    <section class="realestate-propertydetail-details mt-4 " style="font-family: 'Segoe UI', sans-serif; ">
         <div class="container">
             <div class="d-flex flex-column flex-md-row justify-content-between align-items-start">
 
                 <div class="property-info">
-                    <h2 class="property-name">${property.name}</h2>
-                    <p class="property-description text-muted">
+                    <h2 class="realestate-propertydetail-name">${property.name}</h2>
+                    <p class="realestate-propertydetail-description text-muted">
                        ${property.address }
                     </p>
-                    <p class="property-description text-muted">
+                    <p class="realestate-propertydetail-description text-muted">
                        ${property.description }
                     </p>
                     
-                    <p class="property-description text-muted">
+                    <p class="realestate-propertydetail-description text-muted">
 	                       ${property.status }
 	                </p>
                     
                     
-                    <p class="property-description text-muted">
+                    <p class="realestate-propertydetail-description text-muted">
 	                       ${property.price }
 	                </p>
                     
-                      <h3 class="property-detail-authority"> 
+                      <h3 class="realestate-propertydetail-authority"> 
                     	<c:if test="${not empty property.owner}"> Owner: ${ property.owner.username }</c:if>
                     	<c:if test="${not empty property.agent}"> Agent: ${ property.agent.username }</c:if>
                     
@@ -249,7 +246,7 @@
     </section>
 
 
-    <section class="property-contact-section py-5" style="background-color:#f8f8f8;">
+    <section class="realestate-propertydetail-contact-section py-5" style="background-color:#f8f8f8; font-family: 'Segoe UI', sans-serif; letter-spacing:1px;">
         <div class="container">
             <div class="row g-4">
 
@@ -276,16 +273,16 @@
                         <form action="${cp}/inquiry_message" method="post">
                             <div class="mb-3">
                                 <label for="name" class="form-label">Name</label>
-                                <input type="text" class="form-control property-detail-contact-input" id="name" placeholder="Your Name">
+                                <input type="text" class="form-control realestate-propertydetail-contact-input" id="name" placeholder="Your Name">
                             </div>
                             <div class="mb-3">
                                 <label for="email" class="form-label">Email</label>
-                                <input type="email" class="form-control property-detail-contact-input" id="email"
+                                <input type="email" class="form-control realestate-propertydetail-contact-input" id="email"
                                     placeholder="you@example.com">
                             </div>
                             <div class="mb-3">
                                 <label for="message" class="form-label">Message</label>
-                                <textarea class="form-control property-detail-contact-input" id="message" rows="6"
+                                <textarea class="form-control realestate-propertydetail-contact-input" id="message" rows="6"
                                     placeholder="Your message..."></textarea>
                             </div>
                             <button type="submit" class="btn btn-light w-100">Send Inquiry</button>
@@ -312,50 +309,72 @@
         	integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 			
 			<script>
-			  
-			
-			 
-			  const bannerWrapper = document.getElementById("multiSlider");
-			  const bannerImages = document.querySelectorAll(".slider-img");
-			  let bannerIndex = 0;
-			
-			  function getBannerWidth() {
-			    return bannerImages[0].clientWidth + 10; 
-			  }
-			
-			  function bannerNext() {
-			    if (bannerIndex < bannerImages.length - 3) bannerIndex++;
-			    else bannerIndex = 0;
-			    bannerWrapper.style.transform = "translateX(-" + (bannerIndex * getBannerWidth()) + "px)";
-			  }
-			
-			  function bannerPrev() {
-			    if (bannerIndex > 0) bannerIndex--;
-			    else bannerIndex = bannerImages.length - 3;
-			    bannerWrapper.style.transform = "translateX(-" + (bannerIndex * getBannerWidth()) + "px)";
-			  }
-			
-			  document.getElementById("nextBtn").addEventListener("click", bannerNext);
-			  document.getElementById("prevBtn").addEventListener("click", bannerPrev);
-			
-			  let bannerAutoPlay = setInterval(bannerNext, 3000);
-			
-			  bannerWrapper.addEventListener("mouseenter", () => clearInterval(bannerAutoPlay));
-			  bannerWrapper.addEventListener("mouseleave", () => bannerAutoPlay = setInterval(bannerNext, 3000));
-			
-			
-			  const modalImage = document.getElementById("modalImage");
-			  const modal = new bootstrap.Modal(document.getElementById("imageModal"));
-			
-			  bannerImages.forEach(img => {
-			    img.addEventListener("click", function () {
-			      modalImage.src = this.src;
-			      modal.show();
-			    });
-			  });
-			  
-			  
-		</script>
+				$(document).ready(function() {
+				    const $bannerWrapper = $("#realestatePropertyDetailMultiSlider");
+				    const $bannerImages = $(".realestate-propertydetail-slider-img");
+				    let bannerIndex = 0;
+				
+				    function getBannerWidth() {
+				        return $bannerImages.first().outerWidth(true);
+				    }
+				
+				    function bannerNext() {
+				        bannerIndex++;
+				        $bannerWrapper.css({
+				            "transition": "transform 0.5s ease-in-out",
+				            "transform": "translateX(-" + (bannerIndex * getBannerWidth()) + "px)"
+				        });
+				
+				        if (bannerIndex === $bannerImages.length - 3) {
+				            setTimeout(function() {
+				                $bannerWrapper.css("transition", "none");
+				                bannerIndex = 0;
+				                $bannerWrapper.css("transform", "translateX(0px)");
+				            }, 500);
+				        }
+				    }
+				
+				    function bannerPrev() {
+				        if (bannerIndex === 0) {
+				            bannerIndex = $bannerImages.length - 3;
+				            $bannerWrapper.css({
+				                "transition": "none",
+				                "transform": "translateX(-" + (bannerIndex * getBannerWidth()) + "px)"
+				            });
+				            setTimeout(function() {
+				                bannerIndex--;
+				                $bannerWrapper.css({
+				                    "transition": "transform 0.5s ease-in-out",
+				                    "transform": "translateX(-" + (bannerIndex * getBannerWidth()) + "px)"
+				                });
+				            }, 20);
+				        } else {
+				            bannerIndex--;
+				            $bannerWrapper.css({
+				                "transition": "transform 0.5s ease-in-out",
+				                "transform": "translateX(-" + (bannerIndex * getBannerWidth()) + "px)"
+				            });
+				        }
+				    }
+				
+				    $("#nextBtn").click(bannerNext);
+				    $("#prevBtn").click(bannerPrev);
+				
+				    let bannerAutoPlay = setInterval(bannerNext, 1200);
+				
+				    $bannerWrapper.hover(
+				        function() { clearInterval(bannerAutoPlay); },
+				        function() { bannerAutoPlay = setInterval(bannerNext, 2000); }
+				    );
 
+				    const modal = new bootstrap.Modal($("#realestatePropertyDetailImageModal")[0]);
+				    const $modalImage = $("#realestatePropertyDetailModalImage");
+				
+				    $bannerImages.click(function() {
+				        $modalImage.attr("src", $(this).attr("src"));
+				        modal.show();
+				    });
+				});
+			</script>
 	</body>
 </html>

@@ -19,8 +19,8 @@ public class PropertyServiceImpl implements PropertyService{
 	private PropertyRepository propertyRepository;
 	
 	@Override
-	public void saveProperty(Property property) {
-		propertyRepository.save(property);
+	public Property saveProperty(Property property) {
+		return propertyRepository.save(property);
 		
 	}
 
@@ -58,14 +58,15 @@ public class PropertyServiceImpl implements PropertyService{
 	}
 
 	@Override
-	public void updateProperty(Property property) {
-		propertyRepository.save(property);
+	public Property updateProperty(Property property) {
+		return propertyRepository.save(property);
 		
 	}
 
 	@Override
-	public void deleteProperty(Property property) {
+	public Property deleteProperty(Property property) {
 		propertyRepository.delete(property);
+		return property;
 		
 	}
 
@@ -74,7 +75,6 @@ public class PropertyServiceImpl implements PropertyService{
 	    return propertyRepository.findAll();
 	}
 
-	
 
 
 }

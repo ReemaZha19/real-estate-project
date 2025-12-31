@@ -27,7 +27,7 @@ public class UserDetail implements Serializable {
 	private String firstname;
 	private String lastname;
 	private String gender;
-	@Column(unique=true)
+	@Column(unique=true, nullable=false)
 	private String email;
 	@Column(unique=true)
 	private long phone;

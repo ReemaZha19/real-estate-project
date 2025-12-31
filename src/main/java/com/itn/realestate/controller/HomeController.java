@@ -108,6 +108,21 @@ public class HomeController {
 	    model.addAttribute("property_list", propertyService.getAll());
 	    return "similar_product"; 
 	}
+	
+	@GetMapping("/filter_property")
+	public String showFilterProperty(Model model) {
+		return "filter_property";
+	}
+	
+	@GetMapping("/all_property")
+	public String showAllProperty(Model model) {
+		return "all_property";
+	}
+	
+	@GetMapping("/wishlist")
+	public String showAllWishlist(Model model) {
+		return "wishlist";
+	}
 
 
 

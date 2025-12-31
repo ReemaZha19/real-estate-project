@@ -7,7 +7,7 @@ import com.itn.realestate.entity.UserDetail;
 
 public interface PropertyService {
 
-	public void saveProperty(Property property);
+	public Property saveProperty(Property property);
 	
 	public List<Property> getAllProperties();
 	
@@ -21,11 +21,16 @@ public interface PropertyService {
 	
 	public Property getPropertyById(int id);
 	
-	public void updateProperty(Property property);
+	public Property updateProperty(Property property);
 	
-	public void deleteProperty(Property property);
+	public Property deleteProperty(Property property);
 
 	public List<Property> getAll();
+	
+
+
+
+	
 
 	
 	
